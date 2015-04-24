@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- '0.10'
+deploy:
+  provider: deis
+  controller: deis.dockware.io
+  app: nodejs
+  username: philipz
+  password:
+    secure: hwy9+yMLdm4zQ3vhQNl61rQFvCGwxLibOKyWv3OM3O5To1Mfw8MRZqivF/JhhB3Vzv+Gg1SWloScM3nkCGRNwh7UbDbqpTlk4GRhamouwQ6qOZzR5kQQkbuM+zaRmZj5RyPgG0TO5O210NE6R9jx9Ir+txBO4jdLBZbKSgpWRXs=
+  on:
+    repo: philipz/example-nodejs-express
