@@ -4,9 +4,11 @@ node_js:
 deploy:
   provider: deis
   controller: http://deis.dockware.io
-  app: nodejs
+  app: klutzy-nailhead
   username: philipz
   password:
-    secure: "qQMS8KWKTMm5yrkJYpdZB6fAmzW3Ra1fOF5z6Tf0JnW46puIOuQYdr+1WOHIwN0aN69nJjeQpBFw1QWSctKPB+J376fwJ0GbPMyepWa8GErG9dt2yxF/LihMGDPxTKgGzE/txjIl4LC0eTyA6ARa66wjwCtpnxmdbZ2DTfh4Fjw="
+    secure: l0/uvoaKB/u2oXudxZcv9HFbLQdeDRoHrt6PEyRWrTucior5bF8tugT1FOE2sYrMQRbBJJM0O5GiRIlZ4T6NRns5HuN8MgP/EtELmDe/iuq4GxCyqxuQxJ5wbh+a/ZPirMXJ46RPE+EOsoBC9tPf1avg3DMTiQ1sh3ctLh+O6tg=
   on:
     repo: philipz/example-nodejs-express
+notifications:
+  email: false
