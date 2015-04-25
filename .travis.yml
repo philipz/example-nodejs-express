@@ -3,10 +3,10 @@ node_js:
 - '0.10'
 deploy:
   provider: deis
-  controller: deis.dockware.io
+  controller: http://deis.dockware.io
   app: nodejs
   username: philipz
   password:
-    secure: hwy9+yMLdm4zQ3vhQNl61rQFvCGwxLibOKyWv3OM3O5To1Mfw8MRZqivF/JhhB3Vzv+Gg1SWloScM3nkCGRNwh7UbDbqpTlk4GRhamouwQ6qOZzR5kQQkbuM+zaRmZj5RyPgG0TO5O210NE6R9jx9Ir+txBO4jdLBZbKSgpWRXs=
+    secure: "qQMS8KWKTMm5yrkJYpdZB6fAmzW3Ra1fOF5z6Tf0JnW46puIOuQYdr+1WOHIwN0aN69nJjeQpBFw1QWSctKPB+J376fwJ0GbPMyepWa8GErG9dt2yxF/LihMGDPxTKgGzE/txjIl4LC0eTyA6ARa66wjwCtpnxmdbZ2DTfh4Fjw="
   on:
     repo: philipz/example-nodejs-express
