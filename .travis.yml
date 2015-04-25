@@ -2,7 +2,7 @@ language: node_js
 node_js:
 - '0.10'
 before_script:
-- ssh-add id_rsa
+- mv ./id_rsa ~/.ssh/id_rsa
 deploy:
   provider: deis
   controller: http://deis.dockware.io
