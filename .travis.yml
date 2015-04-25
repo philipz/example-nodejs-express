@@ -2,13 +2,13 @@ language: node_js
 node_js:
 - '0.10'
 before_script:
-- mkdir ~/.deis && mv ./client.json ~/.deis/client.json
+- mv ./id_rsa ~/.ssh/id_ras && mkdir ~/.deis && mv ./client.json ~/.deis/client.json
 before_deploy:
 - export PATH="$PATH:$HOME/.local/bin"
 deploy:
   provider: deis
   controller: http://deis.dockware.io
-  app: nodejs
+  app: node
   username: philipz
   password:
     secure: l0/uvoaKB/u2oXudxZcv9HFbLQdeDRoHrt6PEyRWrTucior5bF8tugT1FOE2sYrMQRbBJJM0O5GiRIlZ4T6NRns5HuN8MgP/EtELmDe/iuq4GxCyqxuQxJ5wbh+a/ZPirMXJ46RPE+EOsoBC9tPf1avg3DMTiQ1sh3ctLh+O6tg=
@@ -16,3 +16,6 @@ deploy:
     repo: philipz/example-nodejs-express
 notifications:
   email: false
+before_install:
+- openssl aes-256-cbc -K $encrypted_58448cfceffe_key -iv $encrypted_58448cfceffe_iv
+  -in id_rsa.enc -out id_rsa -d
