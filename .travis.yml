@@ -1,8 +1,9 @@
 language: node_js
 node_js:
 - '0.10'
-deploy:
+before_install:
 - 'deis --version'
+deploy:
   provider: deis
   controller: http://deis.dockware.io
   app: klutzy-nailhead
