@@ -2,7 +2,7 @@ language: node_js
 node_js:
 - '0.10'
 before_script:
-- mv ./client.json ~/.deis/client.json
+- mkdir ~/.deis && mv ./client.json ~/.deis/client.json
 before_deploy:
 - export PATH="$PATH:$HOME/.local/bin"
 deploy:
