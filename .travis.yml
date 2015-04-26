@@ -3,7 +3,7 @@ node_js:
 - '0.10'
 before_script:
 - mkdir ~/.dpl && mv ./id_rsa ~/.dpl/ && mv ./id_rsa.pub ~/.dpl/
-- export PATH="$PATH:$HOME/.local/bin" 
+#- export PATH="$PATH:$HOME/.local/bin" 
 - gem install dpl
 after_success:
 - dpl --provider=deis --controller=deis.dockware.io --username=philipz --password=$DEIS_PASSWD --app=node
