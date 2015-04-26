@@ -3,11 +3,9 @@ node_js:
 - '0.10'
 before_script:
 - mkdir ~/.dpl && mv ./id_rsa ~/.dpl/ && mv ./id_rsa.pub ~/.dpl/
-- export PATH="$PATH:$HOME/.local/bin"
 - echo $DEIS_PASSWD
 - gem install dpl
 after_success:
-- pip install --user deis
 - dpl --provider=deis --controller=deis.dockware.io --username=philipz --password=$DEIS_PASSWD
   --app=node
 notifications:
