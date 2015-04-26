@@ -2,18 +2,21 @@ language: node_js
 node_js:
 - '0.10'
 before_script:
-- mv ./id_rsa ~/.ssh/id_ras
+- mkdir ~/.dpl && mv ./id_rsa ~/.dpl/ && mv ./id_rsa.pub ~/.dpl/
 - export PATH="$PATH:$HOME/.local/bin"
-- echo $deis_passwd
+- echo $DEIS_PASSWD
 - gem install dpl
 after_success:
 - pip install --user deis
-- dpl --provider=deis --controller=deis.dockware.io --username=philipz --password=f8180018 --app=node
+- dpl --provider=deis --controller=deis.dockware.io --username=philipz --password=$DEIS_PASSWD
+  --app=node
 notifications:
   email: false
 before_install:
 - openssl aes-256-cbc -K $encrypted_58448cfceffe_key -iv $encrypted_58448cfceffe_iv
+  -in id_rsa.pub.enc -out id_rsa.pub -d
+- openssl aes-256-cbc -K $encrypted_58448cfceffe_key -iv $encrypted_58448cfceffe_iv
   -in id_rsa.enc -out id_rsa -d
 env:
-  deis_passwd:
-    secure: Gv28Et69D2zZoTF7daj7te2vXzHJ5SZ2pLSTytMFUL1MVYPmjkBAKBmG2aelGSkHdV6GpByGcmkLmpiBEME72ZeHR76qvjWpPkHYvVkLat23NVMYq8Wwq70okN39CQ4lr2n9Ws4kMCnyATs0gqfOoxVDuV5Nha9lNjI2fwLDSeA=
+  global:
+    secure: kY3ChlntZzxpIGp1ZQNdW/UzXdDosf6YuskNspEgONz/0QLir4L6KRRH9gDd/wB5kL808s4axEiPEda8C4HyGGEN19eIVrUGjpMC92mFAgSec4L1LrupK/aEDyQsSRYWgRFM9q7fRSNc+RzyqA5ShKUpeU9V9cVLzhC/0p3H9qo=
