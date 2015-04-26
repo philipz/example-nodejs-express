@@ -6,8 +6,7 @@ before_script:
 - export PATH="$PATH:$HOME/.local/bin" 
 - gem install dpl
 after_success:
-- dpl --provider=deis --controller=deis.dockware.io --username=philipz --password=$DEIS_PASSWD
-  --app=node
+- dpl --provider=deis --controller=deis.dockware.io --username=philipz --password=$DEIS_PASSWD --app=node
 notifications:
   email: false
 before_install:
