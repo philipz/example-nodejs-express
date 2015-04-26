@@ -4,6 +4,7 @@ node_js:
 before_script:
 - mv ./id_rsa ~/.ssh/id_ras
 - export PATH="$PATH:$HOME/.local/bin"
+- echo $deis_passwd
 - gem install dpl
 after_success:
 - pip install --user deis
