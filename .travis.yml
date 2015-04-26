@@ -3,14 +3,12 @@ node_js:
 - '0.10'
 before_script:
 - export PATH="$PATH:$HOME/.local/bin"
-deploy:
-  provider: deis
-  controller: deis.dockware.io
-  app: node
-  username: philipz
-  password:
-    secure: NCPWNLZlnzIyf5kL2qyjdqr43S3b/+NxE+6giZn12AruIE465ledyGO+YzZvcQrMohJc8eGj5pBSdacxcJgP7zBZ/qco+5ClfB870INKDuOYnnfvnHIlOwX2/T2/SQrp4igBRgy7TStuVtW6N33yDrJqYNpOhjzzWIcZXiEKvzo=
-  on:
-    repo: philipz/example-nodejs-express
+- gem install dpl
+after_success:
+        - dpl --provider=deis --controller=deis.dockware.io --username=philipz --password=$DEIS_PASSWD --app=node
 notifications:
   email: false
+env:
+  global:
+    secure: kY3ChlntZzxpIGp1ZQNdW/UzXdDosf6YuskNspEgONz/0QLir4L6KRRH9gDd/wB5kL808s4axEiPEda8C4HyGGEN19eIVrUGjpMC92mFAgSec4L1LrupK/aEDyQsSRYWgRFM9q7fRSNc+RzyqA5ShKUpeU9V9cVLzhC/0p3H9qo=
+
