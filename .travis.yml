@@ -2,14 +2,15 @@ language: node_js
 node_js:
 - '0.10'
 before_script:
-#- mkdir ~/.dpl && mv ./id_rsa ~/.dpl/ && mv ./id_rsa.pub ~/.dpl/
 - export PATH="$PATH:$HOME/.local/bin"
 deploy:
   provider: deis
   controller: deis.dockware.io
+  app: node
   username: philipz
   password:
     secure: NCPWNLZlnzIyf5kL2qyjdqr43S3b/+NxE+6giZn12AruIE465ledyGO+YzZvcQrMohJc8eGj5pBSdacxcJgP7zBZ/qco+5ClfB870INKDuOYnnfvnHIlOwX2/T2/SQrp4igBRgy7TStuVtW6N33yDrJqYNpOhjzzWIcZXiEKvzo=
-  app: node
+  on:
+    repo: philipz/example-nodejs-express
 notifications:
   email: false
