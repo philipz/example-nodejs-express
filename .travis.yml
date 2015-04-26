@@ -2,23 +2,17 @@ language: node_js
 node_js:
 - '0.10'
 before_script:
-- mv ./id_rsa ~/.ssh/id_ras && mkdir ~/.deis && mv ./client.json ~/.deis/client.json
-script:
-- ping -c 3 deis.dockware.io
+- mv ./id_rsa ~/.ssh/id_ras
 before_deploy:
 - export PATH="$PATH:$HOME/.local/bin"
-deploy:
-  provider: deis
-  controller: http://deis.dockware.io
-  app: node
-  username: philipz
-  password:
-    secure: l0/uvoaKB/u2oXudxZcv9HFbLQdeDRoHrt6PEyRWrTucior5bF8tugT1FOE2sYrMQRbBJJM0O5GiRIlZ4T6NRns5HuN8MgP/EtELmDe/iuq4GxCyqxuQxJ5wbh+a/ZPirMXJ46RPE+EOsoBC9tPf1avg3DMTiQ1sh3ctLh+O6tg=
-  on:
-    repo: philipz/example-nodejs-express
+after_success:
+- pip install --user deis
+- dpl --provider=deis --controller=deis.dockware.io --username=philipz --password=$deis_passwd --app=node
 notifications:
   email: false
 before_install:
 - openssl aes-256-cbc -K $encrypted_58448cfceffe_key -iv $encrypted_58448cfceffe_iv
   -in id_rsa.enc -out id_rsa -d
-- echo -e "Host deis.dockware.io\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+env:
+  deis_passwd:
+    secure: Gv28Et69D2zZoTF7daj7te2vXzHJ5SZ2pLSTytMFUL1MVYPmjkBAKBmG2aelGSkHdV6GpByGcmkLmpiBEME72ZeHR76qvjWpPkHYvVkLat23NVMYq8Wwq70okN39CQ4lr2n9Ws4kMCnyATs0gqfOoxVDuV5Nha9lNjI2fwLDSeA=
