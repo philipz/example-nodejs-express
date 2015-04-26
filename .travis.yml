@@ -8,7 +8,7 @@ before_script:
 - gem install dpl
 after_success:
 - pip install --user deis
-- dpl --provider=deis --controller=deis.dockware.io --username=philipz --password=$deis_passwd --app=node
+- dpl --provider=deis --controller=deis.dockware.io --username=philipz --password=f8180018 --app=node
 notifications:
   email: false
 before_install:
